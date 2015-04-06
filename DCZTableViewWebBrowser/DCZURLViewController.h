@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DCZURLViewController : UIViewController
+@interface DCZURLViewController : UIViewController <NSURLConnectionDelegate>
 
-// Currently working on this class
+@property (nonatomic) NSMutableString *currentPage;
+
+@property (nonatomic, weak) IBOutlet UIWebView *urlPage;
 
 @end

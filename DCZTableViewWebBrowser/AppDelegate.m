@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DCZTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    DCZTableViewController *tableContr = [[DCZTableViewController alloc] init];
+    UINavigationController *navContr = [[UINavigationController alloc] initWithRootViewController:tableContr];
+    self.window.rootViewController = navContr;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
