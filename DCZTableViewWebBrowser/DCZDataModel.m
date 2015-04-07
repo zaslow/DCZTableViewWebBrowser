@@ -12,7 +12,6 @@
 
 @property (nonatomic) NSMutableArray *URLs;
 @property (nonatomic) NSMutableArray *pageNames;
-@property (nonatomic) NSMutableArray *privatePages;
 
 @end
 
@@ -38,10 +37,28 @@
 
 // Here is the real (secret) initializer
 - (instancetype)initPrivate {
+    
     self = [super init];
+    
     if (self) {
-        _privatePages = [[NSMutableArray alloc] init];
+        
+        // Initialize & fill page names array
+        _pageNames = [[NSMutableArray alloc] init];
+        [_pageNames addObject:@"Wikipedia"];
+        [_pageNames addObject:@"Lynda.com"];
+        [_pageNames addObject:@"LinkedIn"];
+        [_pageNames addObject:@"GitHub"];
+        [_pageNames addObject:@"W3Schools"];
+        
+        // Initialize & fill URL array
+        _URLs = [[NSMutableArray alloc] init];
+        [_URLs addObject:@"http://www.wikipedia.org"];
+        [_URLs addObject:@"http://www.lynda.com"];
+        [_URLs addObject:@"http://www.linkedin.com"];
+        [_URLs addObject:@"http://www.github.com"];
+        [_URLs addObject:@"http://www.w3schools.com"];
     }
+    
     return self;
 }
 

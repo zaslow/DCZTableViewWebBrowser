@@ -13,5 +13,7 @@
 @property (nonatomic, strong) NSMutableArray *URLsArray;
 @property (nonatomic, weak) NSMutableString *currentPage;
 
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
 @end
 
