@@ -7,7 +7,7 @@
 //
 
 #import "DCZTableViewController.h"
-#import "DCZPageCollection.h"
+#import "DCZURLViewController.h"
 #import "DCZDataModel.h"
 
 @interface DCZTableViewController ()
@@ -19,23 +19,6 @@
 - (instancetype)init {
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        DCZDataModel *Wikipedia = [[DCZDataModel alloc] init];
-            Wikipedia.URL = @"http://www.wikipedia.org";
-            Wikipedia.pageName = @"Wikipedia";
-        DCZDataModel *Lynda = [[DCZDataModel alloc] init];
-            Lynda.URL = @"http://www.lynda.com";
-            Lynda.pageName = @"Lynda.com";
-        DCZDataModel *LinkedIn = [[DCZDataModel alloc] init];
-            LinkedIn.URL = @"http://www.linkedin.com";
-            LinkedIn.pageName = @"LinkedIn";
-        DCZDataModel *GitHub = [[DCZDataModel alloc] init];
-            GitHub.URL = @"http://www.github.com";
-            GitHub.pageName = @"GitHub";
-        DCZDataModel *W3Schools = [[DCZDataModel alloc] init];
-            W3Schools.URL = @"http://www.w3schools.com";
-            W3Schools.pageName = @"W3 Schools";
-    }
     return self;
 }
 
@@ -45,30 +28,61 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [[[DCZPageCollection sharedPages] allPages] count];
+    return [[[DCZDataModel sharedPages] pageNamesList] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Create an instance of UITableViewCell, with default appearance
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                   reuseIdentifier:@"UITableViewCell"];
+    
+    // Set up the resuable table cell object
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+                                                            forIndexPath:indexPath];
+
+    // If one does not already exist, create an instance of UITableViewCell with default appearance
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:@"UITableViewCell"];
+    }
     
     // Set the text on the cell with the description of the item that is at the nth index of items,
     // where n = row this cell will appear in on the tableview
-    NSArray *pages = [[DCZPageCollection sharedPages] allPages];
+    NSArray *pages = [[DCZDataModel sharedPages] pageNamesList];
     DCZDataModel *page = pages[indexPath.row];
     cell.textLabel.text = [page description];
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DCZURLViewController *urlContr = [[DCZURLViewController alloc] init];
+    
+    NSMutableArray *address = [[DCZDataModel sharedPages] pageNamesList];
+    NSMutableString *currentAddress = address[indexPath.row];
+    urlContr.currentPage = currentAddress;
+    
+    //Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:urlContr
+                                         animated:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.title = @"Websites";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 @end

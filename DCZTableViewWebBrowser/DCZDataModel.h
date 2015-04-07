@@ -10,7 +10,9 @@
 
 @interface DCZDataModel : NSObject
 
-@property (nonatomic) NSString *URL;
-@property (nonatomic) NSString *pageName;
+@property (nonatomic) NSMutableArray *URLsList;
+@property (nonatomic) NSMutableArray *pageNamesList;
+
++ (instancetype) sharedPages;
 
 @end
