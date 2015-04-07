@@ -15,7 +15,6 @@
 		389F8F741AD1B7B600DB0C61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389F8F721AD1B7B600DB0C61 /* LaunchScreen.xib */; };
 		389F8F801AD1B7B600DB0C61 /* DCZTableViewWebBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F8F7F1AD1B7B600DB0C61 /* DCZTableViewWebBrowserTests.m */; };
 		389F8F8B1AD1B86A00DB0C61 /* DCZDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F8F8A1AD1B86A00DB0C61 /* DCZDataModel.m */; };
-		389F8F8E1AD1BAC200DB0C61 /* DCZPageCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F8F8D1AD1BAC200DB0C61 /* DCZPageCollection.m */; };
 		389F8F911AD1BBCA00DB0C61 /* DCZURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F8F901AD1BBCA00DB0C61 /* DCZURLViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +44,6 @@
 		389F8F7F1AD1B7B600DB0C61 /* DCZTableViewWebBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCZTableViewWebBrowserTests.m; sourceTree = "<group>"; };
 		389F8F891AD1B86A00DB0C61 /* DCZDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCZDataModel.h; sourceTree = "<group>"; };
 		389F8F8A1AD1B86A00DB0C61 /* DCZDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCZDataModel.m; sourceTree = "<group>"; };
-		389F8F8C1AD1BAC200DB0C61 /* DCZPageCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCZPageCollection.h; sourceTree = "<group>"; };
-		389F8F8D1AD1BAC200DB0C61 /* DCZPageCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCZPageCollection.m; sourceTree = "<group>"; };
 		389F8F8F1AD1BBCA00DB0C61 /* DCZURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCZURLViewController.h; sourceTree = "<group>"; };
 		389F8F901AD1BBCA00DB0C61 /* DCZURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCZURLViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +91,6 @@
 				389F8F681AD1B7B600DB0C61 /* AppDelegate.m */,
 				389F8F891AD1B86A00DB0C61 /* DCZDataModel.h */,
 				389F8F8A1AD1B86A00DB0C61 /* DCZDataModel.m */,
-				389F8F8C1AD1BAC200DB0C61 /* DCZPageCollection.h */,
-				389F8F8D1AD1BAC200DB0C61 /* DCZPageCollection.m */,
 				389F8F6A1AD1B7B600DB0C61 /* DCZTableViewController.h */,
 				389F8F6B1AD1B7B600DB0C61 /* DCZTableViewController.m */,
 				389F8F8F1AD1BBCA00DB0C61 /* DCZURLViewController.h */,
@@ -236,7 +231,6 @@
 			files = (
 				389F8F6C1AD1B7B600DB0C61 /* DCZTableViewController.m in Sources */,
 				389F8F8B1AD1B86A00DB0C61 /* DCZDataModel.m in Sources */,
-				389F8F8E1AD1BAC200DB0C61 /* DCZPageCollection.m in Sources */,
 				389F8F691AD1B7B600DB0C61 /* AppDelegate.m in Sources */,
 				389F8F911AD1BBCA00DB0C61 /* DCZURLViewController.m in Sources */,
 				389F8F661AD1B7B600DB0C61 /* main.m in Sources */,
