@@ -23,6 +23,7 @@
     DCZTableViewController *tableContr = [[DCZTableViewController alloc] init];
     UINavigationController *navContr = [[UINavigationController alloc] initWithRootViewController:tableContr];
     self.window.rootViewController = navContr;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

@@ -27,11 +27,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGA-H2-qwh">
-                                                    <rect key="frame" x="15" y="5" width="539" height="33"/>
+                                                    <rect key="frame" x="15" y="0.0" width="545" height="41"/>
                                                     <state key="normal" title="Wikipedia.org">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="openWikipedia:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0oh-Bp-wC8"/>
                                                         <action selector="wikipedia:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qaH-EH-rcT"/>
                                                     </connections>
                                                 </button>
@@ -45,12 +46,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiU-jv-jI4">
-                                                    <rect key="frame" x="246" y="7" width="76" height="30"/>
+                                                    <rect key="frame" x="8" y="0.0" width="552" height="44"/>
                                                     <state key="normal" title="Lynda.com">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="lynda:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bzW-QR-eNm"/>
+                                                        <action selector="openLynda:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qzZ-f2-U9s"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -63,12 +65,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3N-fx-Rst">
-                                                    <rect key="frame" x="255" y="7" width="59" height="30"/>
+                                                    <rect key="frame" x="8" y="2" width="560" height="44"/>
                                                     <state key="normal" title="LinkedIn">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="linkedin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qjj-h4-9yy"/>
+                                                        <action selector="openLinked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gcx-e2-yzx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -81,12 +84,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgh-4r-814">
-                                                    <rect key="frame" x="260" y="7" width="49" height="30"/>
+                                                    <rect key="frame" x="8" y="0.0" width="560" height="44"/>
                                                     <state key="normal" title="GitHub">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="github:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j4v-r2-n3D"/>
+                                                        <action selector="openGithub:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="efs-2f-0Sr"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -99,11 +103,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-8e-TGG">
-                                                    <rect key="frame" x="245" y="8" width="78" height="30"/>
+                                                    <rect key="frame" x="8" y="2" width="560" height="45"/>
                                                     <state key="normal" title="W3Schools">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="openW3:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ab1-Hk-i4A"/>
                                                         <action selector="w3schools:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yQU-rY-Phg"/>
                                                     </connections>
                                                 </button>
@@ -125,7 +130,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="133"/>
+            <point key="canvasLocation" x="139" y="118"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mvm-Xd-OYB">
+            <objects>
+                <viewController id="Dig-4w-44J" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5na-ni-X4Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahb-aZ-5L8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="voI-65-2QJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5N-jK-vCv">
+                                <rect key="frame" x="16" y="28" width="568" height="552"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ki5-Bj-UcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="118"/>
         </scene>
     </scenes>
 </document>

@@ -15,6 +15,30 @@
 @end
 
 @implementation DCZTableViewController
+- (IBAction)openWikipedia:(id)sender {
+    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
+    [self.navigationController pushViewController:URLview animated:YES];
+}
+
+- (IBAction)openLynda:(id)sender {
+    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
+    [self.navigationController pushViewController:URLview animated:YES];
+}
+
+- (IBAction)openLinked:(id)sender {
+    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
+    [self.navigationController pushViewController:URLview animated:YES];
+}
+
+- (IBAction)openGithub:(id)sender {
+    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
+    [self.navigationController pushViewController:URLview animated:YES];
+}
+
+- (IBAction)openW3:(id)sender {
+    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
+    [self.navigationController pushViewController:URLview animated:YES];
+}
 
 - (instancetype)init {
     // Call the superclass's designated initializer
