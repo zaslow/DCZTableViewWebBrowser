@@ -10,9 +10,6 @@
 
 @interface DCZDataModel ()
 
-@property (nonatomic) NSMutableArray *URLs;
-@property (nonatomic) NSMutableArray *pageNames;
-
 @end
 
 @implementation DCZDataModel
@@ -27,39 +24,34 @@
     return sharedPages;
 }
 
-// If a programmer calls [[DCZPageCollection alloc] init], let him know the error of his ways
-- (instancetype)init {
-    @throw [NSException exceptionWithName:@"Singleton"
-                                   reason:@"Use +[DCZPageCollection sharedPages]"
-                                 userInfo:nil];
-    return nil;
+// Here is the real (secret) initializer
+- (instancetype)initPrivate
+{
+    self = [super init];
+    if (self) {
+        _URLs = [[NSMutableArray alloc] init];
+        [_URLs addObject:@"http://www.github.com"];
+        [_URLs addObject:@"http://www.linkedin.com"];
+        [_URLs addObject:@"http://www.lynda.com"];
+        [_URLs addObject:@"http://www.w3schools.com"];
+        [_URLs addObject:@"http://www.wikipedia.org"];
+        
+        _pageNames = [[NSMutableArray alloc] init];
+        [_pageNames addObject:@"GitHub"];
+        [_pageNames addObject:@"LinkedIn"];
+        [_pageNames addObject:@"Lynda.com"];
+        [_pageNames addObject:@"W3Schools"];
+        [_pageNames addObject:@"Wikipedia"];
+    }
+    return self;
 }
 
-// Here is the real (secret) initializer
-- (instancetype)initPrivate {
-    
-    self = [super init];
-    
-    if (self) {
-        
-        // Initialize & fill page names array
-        _pageNames = [[NSMutableArray alloc] init];
-        [_pageNames addObject:@"Wikipedia"];
-        [_pageNames addObject:@"Lynda.com"];
-        [_pageNames addObject:@"LinkedIn"];
-        [_pageNames addObject:@"GitHub"];
-        [_pageNames addObject:@"W3Schools"];
-        
-        // Initialize & fill URL array
-        _URLs = [[NSMutableArray alloc] init];
-        [_URLs addObject:@"http://www.wikipedia.org"];
-        [_URLs addObject:@"http://www.lynda.com"];
-        [_URLs addObject:@"http://www.linkedin.com"];
-        [_URLs addObject:@"http://www.github.com"];
-        [_URLs addObject:@"http://www.w3schools.com"];
-    }
-    
-    return self;
+// If a programmer calls [[DCZDataModel alloc] init], let him know the error of his ways
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Singleton"
+                                   reason:@"Use +[DCZDataModel sharedPages]"
+                                 userInfo:nil];
+    return nil;
 }
 
 @end

@@ -11,7 +11,6 @@
 @interface DCZURLViewController : UIViewController <NSURLConnectionDelegate>
 
 @property (nonatomic) NSMutableString *currentPage;
-
 @property (nonatomic, weak) IBOutlet UIWebView *urlPage;
 
 @end

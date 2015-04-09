@@ -8,37 +8,13 @@
 
 #import "DCZTableViewController.h"
 #import "DCZURLViewController.h"
-#import "DCZDataModel.h"
+#import "DCZDataModel.m"
 
 @interface DCZTableViewController ()
 
 @end
 
 @implementation DCZTableViewController
-- (IBAction)openWikipedia:(id)sender {
-    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
-    [self.navigationController pushViewController:URLview animated:YES];
-}
-
-- (IBAction)openLynda:(id)sender {
-    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
-    [self.navigationController pushViewController:URLview animated:YES];
-}
-
-- (IBAction)openLinked:(id)sender {
-    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
-    [self.navigationController pushViewController:URLview animated:YES];
-}
-
-- (IBAction)openGithub:(id)sender {
-    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
-    [self.navigationController pushViewController:URLview animated:YES];
-}
-
-- (IBAction)openW3:(id)sender {
-    DCZURLViewController *URLview = [self.storyboard instantiateViewControllerWithIdentifier:@"DCZURLViewController"];
-    [self.navigationController pushViewController:URLview animated:YES];
-}
 
 - (instancetype)init {
     // Call the superclass's designated initializer
@@ -50,52 +26,51 @@
     return [self init];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
-    return [[[DCZDataModel sharedPages] pageNamesList] count];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    // Set up the resuable table cell object
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProtoypeCell"
                                                             forIndexPath:indexPath];
-
-    // If one does not already exist, create an instance of UITableViewCell with default appearance
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:@"UITableViewCell"];
-    }
     
-    // Set the text on the cell with the description of the item that is at the nth index of items,
-    // where n = row this cell will appear in on the tableview
-    NSArray *pages = [[DCZDataModel sharedPages] pageNamesList];
-    DCZDataModel *page = pages[indexPath.row];
-    cell.textLabel.text = [page description];
+    // Configure the cell...
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:@"PrototypeCell"];
+    }
+    cell.textLabel.text = [[[DCZDataModel sharedPages] pageNames] objectAtIndex:indexPath.row];
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DCZURLViewController *urlContr = [[DCZURLViewController alloc] init];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [[[DCZDataModel sharedPages] URLs] count];
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSMutableArray *address = [[DCZDataModel sharedPages] pageNamesList];
-    NSMutableString *currentAddress = address[indexPath.row];
+    DCZURLViewController *urlContr = [[DCZURLViewController alloc] init];
+    NSMutableArray *pageAddress = [[DCZDataModel sharedPages] URLs];
+    NSMutableString *currentAddress = pageAddress[indexPath.row];
     urlContr.currentPage = currentAddress;
     
-    //Push it onto the top of the navigation controller's stack
-    [self.navigationController pushViewController:urlContr
-                                         animated:YES];
+    // Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:urlContr animated:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    self.navigationItem.title = @"Websites";
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"Browse Websites";
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"UITableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
