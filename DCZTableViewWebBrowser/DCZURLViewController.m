@@ -36,16 +36,16 @@
     NSMutableString *currentPage = self.currentPage;
     self.navigationItem.title = currentPage;
     
-    NSURL *url = [NSURL URLWithString:currentPage];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLConnection *conn = [NSURLConnection connectionWithRequest:request
+    NSURL *URL = [NSURL URLWithString:currentPage];
+    NSURLRequest *req = [NSURLRequest requestWithURL:URL];
+    NSURLConnection *conn = [NSURLConnection connectionWithRequest:req
                                                           delegate:self];
     
     if(conn!=nil) {
         [conn start];
     }
     
-    [_urlPage loadRequest:request];
+    [_urlPage loadRequest:req];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
