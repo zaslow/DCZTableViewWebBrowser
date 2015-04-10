@@ -8,13 +8,17 @@
 
 #import "DCZTableViewController.h"
 #import "DCZURLViewController.h"
-#import "DCZDataModel.m"
+#import "DCZDataModel.h"
 
 @interface DCZTableViewController ()
 
 @end
 
 @implementation DCZTableViewController
+- (IBAction)goURL:(id)sender {
+    
+    DCZURLViewController *urlContr = [[DCZURLViewController init] alloc];
+}
 
 - (instancetype)init {
     // Call the superclass's designated initializer
@@ -57,8 +61,8 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DCZURLViewController *urlContr = [[DCZURLViewController alloc] init];
-    NSMutableArray *pageAddress = [[DCZDataModel sharedPages] URLs];
-    NSMutableString *currentAddress = pageAddress[indexPath.row];
+    NSMutableArray *pageAddresses = [[DCZDataModel sharedPages] URLs];
+    NSMutableString *currentAddress = pageAddresses[indexPath.row];
     urlContr.currentPage = currentAddress;
     
     // Push it onto the top of the navigation controller's stack
@@ -70,7 +74,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"Browse Websites";
     [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:@"UITableViewCell"];
+           forCellReuseIdentifier:@"PrototypeCell"];
 }
 
 - (void)didReceiveMemoryWarning {

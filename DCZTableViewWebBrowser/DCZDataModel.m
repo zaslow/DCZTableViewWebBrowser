@@ -46,6 +46,7 @@
     return self;
 }
 
+/*
 // If a programmer calls [[DCZDataModel alloc] init], let him know the error of his ways
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"Singleton"
@@ -53,5 +54,6 @@
                                  userInfo:nil];
     return nil;
 }
-
+*/
+ 
 @end
